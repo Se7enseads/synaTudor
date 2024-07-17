@@ -1,0 +1,1 @@
+#define TUDOR_INSTALL_DIR "@INSTALL_DIR@"

@@ -1,4 +1,4 @@
-#!/bin/bash -e
+set -o errexit -o pipefail -o nounset
 
 HASH_FILE="$1"
 TMP_DIR="$2"

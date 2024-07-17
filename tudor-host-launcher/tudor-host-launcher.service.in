@@ -4,8 +4,8 @@ Description=Tudor host launcher DBus service
 [Service]
 Type=dbus
 BusName=net.reactivated.TudorHostLauncher
-ExecStart=/sbin/tudor/tudor_host_launcher
-WorkingDirectory=/sbin/tudor/
+ExecStart=@INSTALL_DIR@/tudor_host_launcher
+WorkingDirectory=@INSTALL_DIR@
 StateDirectory=tudor
 StateDirectoryMode=0700
 

@@ -1,8 +1,15 @@
+generated_h = configure_file(
+    input: 'src/generated.h.in',
+    output: 'generated.h',
+    configuration: configuration_data({ 'INSTALL_DIR': INSTALL_DIR, }),
+)
+
 tudor_host_src = [
     'src/main.c',
     'src/sandbox.c',
     'src/ipc.c',
-    'src/handler.c'
+    'src/handler.c',
+     generated_h,
 ]
 
 tudor_host_flags = []

@@ -18,7 +18,6 @@ executable('tudor_host_launcher', tudor_host_launcher_src,
     install_dir: INSTALL_DIR,
 )
 
-install_data('tudor-host-launcher.service', install_dir: '/usr/lib/systemd/system/')
 install_data('net.reactivated.TudorHostLauncher.conf', install_dir: dbus_dep.get_variable(pkgconfig: 'datadir') / 'dbus-1/system.d')
 
 configure_file(
@@ -27,4 +26,12 @@ configure_file(
     configuration: configuration_data({ 'INSTALL_DIR': INSTALL_DIR, }),
     install: true,
     install_dir: dbus_dep.get_variable(pkgconfig: 'system_bus_services_dir')
+)
+
+configure_file(
+    input: 'tudor-host-launcher.service.in',
+    output: 'tudor-host-launcher.service',
+    configuration: configuration_data({ 'INSTALL_DIR': INSTALL_DIR, }),
+    install: true,
+    install_dir: '/usr/lib/systemd/system/'
 )
